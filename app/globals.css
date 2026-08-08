@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07070f;
+  --color-surface: #0e0e1a;
+  --color-card: #14141f;
+  --color-raised: #1b1b2b;
+  --color-line: #26263d;
+  --color-muted: #8b8ba3;
+  --color-faint: #5a5a72;
+  --color-primary: #8b5cf6;
+  --color-primary2: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: #e6e6f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2a2a44;
+  border-radius: 999px;
+}
+
+.glass {
+  background: rgba(20, 20, 35, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #a78bfa 0%, #818cf8 40%, #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 select-none whitespace-nowrap;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: linear-gradient(120deg, #7c3aed, #6366f1);
+  @apply text-white shadow-lg shadow-violet-600/25;
+}
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+.btn-ghost {
+  @apply border border-line text-muted bg-transparent;
+}
+.btn-ghost:hover {
+  @apply border-[#3d3d63] text-white bg-raised;
+}
+.btn-danger {
+  @apply text-rose-300 border border-rose-500/40 bg-rose-500/10;
+}
+.btn-danger:hover {
+  @apply bg-rose-500/25 border-rose-500/70;
+}
+.btn-sm {
+  @apply px-3 py-1.5 text-sm;
+}
+.btn-md {
+  @apply px-4 py-2.5 text-sm;
+}
+
+.input {
+  @apply w-full rounded-xl border border-line bg-raised px-4 py-3 text-sm text-white placeholder:text-faint outline-none transition-all duration-200;
+}
+.input:focus {
+  @apply border-primary/70 ring-2 ring-primary/20;
+}
+
+.card {
+  @apply rounded-2xl border border-line bg-card;
+}
+
+.skeleton {
+  @apply animate-pulse rounded-xl bg-raised;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-in {
+  animation: toastIn 0.25s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
